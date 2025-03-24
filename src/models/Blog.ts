@@ -16,4 +16,9 @@ export default class Blog extends Entity<Attributes> {
 
     return data;
   }
+
+  static async create(body: any): Promise<Blog> {
+    const response = await api.open.post(`/blogs`, body);
+    return response.data.data;
+  }
 }
